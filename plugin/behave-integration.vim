@@ -20,15 +20,3 @@ import plugin
 EOF
 
 let g:sample_python_plugin_loaded = 1
-
-function! PrintCountry()
-  python3 plugin.print_country()
-endfunction
-
-command! -nargs=0 PrintCountry call PrintCountry()
-
-function! InsertCountry()
-  python3 plugin.insert_country()
-endfunction
-
-command! -nargs=0 InsertCountry call InsertCountry()
