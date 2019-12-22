@@ -3,7 +3,7 @@ if !has("python3")
   finish
 endif
 
-if exists('g:sample_python_plugin_loaded')
+if exists('g:behave_integration_plugin_loaded')
   finish
 endif
 
@@ -19,4 +19,16 @@ sys.path.insert(0, python_root_dir)
 import plugin
 EOF
 
-let g:sample_python_plugin_loaded = 1
+let g:behave_integration_plugin_loaded = 1
+
+function! BehaveJump()
+  python3 plugin.behave_jump()
+endfunction
+
+command! -nargs=0 BehaveJump call BehaveJump()
+
+function! BehaveErrors()
+  python3 plugin.behave_errors()
+endfunction
+
+command! -nargs=0 BehaveErrors call BehaveErrors()
