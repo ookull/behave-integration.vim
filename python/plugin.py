@@ -16,6 +16,9 @@ Feature testing layout
       |    +-- *.py       # -- Step implementations
 """
 
+# TODO Implement method to use custom data types in step parameters
+# https://behave.readthedocs.io/en/latest/api.html#behave.register_type
+
 import ast
 import os
 import pathlib
