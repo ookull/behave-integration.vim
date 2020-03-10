@@ -2,20 +2,25 @@
 ===============================================================================
 Behave VIM integration                                   *behave-vim-integration*
 
-Behave VIM integration is a plugin for Behave (behaviour-driven development,
-Python style).
+Behave VIM integration is a integration plugin for Behave (behaviour-driven
+development, Python style).
 
-Plugin adds jumping between step definition (features/*.feature) and
-implementation (features/steps/*.py).
+Plugin adds quick jumping between step definitions (features/*.feature) and
+implementations (features/steps/*.py).
 
 :BehaveJump                                                         *:BehaveJump*
 
-    Jumps to related step implementation if executed in features/*.feature, or
-    to step definition if executed in features/steps/*.py.
+    Jump between step definition files (features/*.feature), and step
+    implementation (features/steps/*.py) files.
+
+    `location-list` is used to produce target list if more than one match
+    found.
 
 :BehaveErrors                                                     *:BehaveErrors*
 
-    Display list of errors
+    Analyze step definition and implementation files for possible errors.
+
+    Open a `quickfix` list with error messages if there is any.
 
 ===============================================================================
 REQUIREMENTS                                *behave-vim-integration-requirements*
