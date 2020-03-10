@@ -58,7 +58,7 @@ def behave_jump():
         filetype = filetype.decode()  # vim
     assert isinstance(filetype, str)
     if filetype not in ("cucumber", "python"):
-        print('File type "{}" not supported by BehaveJump'.format(filetype))
+        print('File type "{}" is not supported by BehaveJump'.format(filetype))
         return
 
     try:
@@ -141,7 +141,7 @@ def behave_errors():
         vim.Function("setqflist")(quickfix_list)
         vim.command("copen {}".format(list_window_size))
     else:
-        print("No errors found")
+        print("No Behave errors found")
 
 
 def find_features_path(src_path):
