@@ -94,7 +94,10 @@ def behave_jump():
                 "text": location.description,
             }
         )
-    vim.Function("setloclist")(0, locations_list)
+    try:
+        vim.Function("setloclist")(0, locations_list)  # vim
+    except AttributeError:
+        vim.funcs.setloclist(0, locations_list)  # neovim
     vim.command("lopen {}".format(list_window_size))
 
 
@@ -138,7 +141,10 @@ def behave_errors():
                     "text": err,
                 }
             )
-        vim.Function("setqflist")(quickfix_list)
+        try:
+            vim.Function("setqflist")(quickfix_list)  # vim
+        except AttributeError:
+            vim.funcs.setqflist(quickfix_list)  # neovim
         vim.command("copen {}".format(list_window_size))
     else:
         print("No Behave errors found")

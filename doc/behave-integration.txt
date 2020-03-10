@@ -3,7 +3,7 @@
 Behave VIM integration                                   *behave-vim-integration*
 
 Behave VIM integration is a integration plugin for Behave (behaviour-driven
-development, Python style).
+development, Python style). It also works with NeoVIM.
 
 Plugin adds quick jumping between step definitions (features/*.feature) and
 implementations (features/steps/*.py).
