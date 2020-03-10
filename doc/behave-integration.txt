@@ -29,4 +29,11 @@ REQUIREMENTS                                *behave-vim-integration-requirements
 * Behave is installed and available for VIM
 
 ===============================================================================
+IMPLEMENTATION                              *behave-vim-integration-implementaton*
+
+Behave VIM integration plugin is implemented in Python. It uses builtin
+Abstract Syntax Trees (ast) plugin to parse python files and Behave module to
+parse feature files.
+
+===============================================================================
 vim:tw=78:ts=8:et:ft=help:norl:
