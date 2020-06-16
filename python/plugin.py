@@ -221,9 +221,15 @@ def scan_step_def(buf, filepath=None, language=None):
 
     :return: StepLocation
     """
-    filepath = filepath or buf.name
-    language = language or find_features_language(find_features_path(filepath))
-    feature = behave_parser.parse_file(filepath, language=language)
+    language = language or find_features_language(
+        find_features_path(filepath or buf.name)
+    )
+    if filepath:
+        feature = behave_parser.parse_file(filepath, language=language)
+    else:
+        feature = behave_parser.parse_feature(
+            "\n".join(buf), language=language, filename=buf.name
+        )
     translations_for_and = languages.get(language or "en", {}).get("and", [])
 
     for scenario in [feature.background] + feature.scenarios:
@@ -322,7 +328,7 @@ def get_step_location(vim_buf, lineno):
         if location is None:
             raise LookupError("Not a step implementation")
     elif filepath.endswith(".feature"):
-        for step in scan_step_def(vim_buf, filepath):
+        for step in scan_step_def(vim_buf):
             if lineno < step.lineno:
                 break
             location = step
