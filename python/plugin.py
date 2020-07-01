@@ -296,7 +296,11 @@ def scan_step_impl(buf, filepath=None):
     for obj in code.body:
         if obj.__class__.__name__ == "FunctionDef":
             for deco in obj.decorator_list:
-                if deco.func.id in ("given", "when", "then", "step") and deco.args:
+                if (
+                    isinstance(deco, ast.Call)
+                    and deco.func.id in ("given", "when", "then", "step")
+                    and deco.args
+                ):
                     yield StepLocation(
                         step_type=deco.func.id,
                         description="@{}({})".format(
